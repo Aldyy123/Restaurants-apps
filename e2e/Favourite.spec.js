@@ -1,0 +1,41 @@
+Feature('Favourite Restaurant')
+
+Scenario('Empty Favourite', ({ I }) => {
+  I.amOnPage('/#/favorite')
+  I.seeElement('#favorite')
+  I.see('', '#favorite')
+})
+Scenario('Add Into Favourite and delete from Favourite', ({ I }) => {
+  I.amOnPage('/')
+  I.seeElement('#list .link-resto')
+  I.click(locate('#list .link-resto').first())
+  I.seeElement('#floating #like')
+  I.click('#like')
+  I.amOnPage('/#/favorite')
+  I.seeElement('#favorite .link-resto')
+  I.click(locate('#favorite .link-resto').first())
+  I.seeElement('#floating #liked')
+  I.click('#liked')
+})
+
+Scenario('Adding Review', ({ I }) => {
+  I.amOnPage('/')
+  I.seeElement('#list .link-resto')
+  I.click(locate('#list .link-resto').first())
+  I.seeElement('#input-name')
+  I.seeElement('#text-review')
+  I.seeElement('#submit')
+  I.seeInField('#input-name', '')
+  I.seeInField('#text-review', '')
+  I.fillField('#input-name', 'Ahmad')
+  I.fillField('#text-review', 'Baguss cuy')
+  I.click('#submit')
+})
+
+Scenario('Searching not found', ({ I }) => {
+  I.amOnPage('/')
+  I.seeElement('#search')
+  I.fillField('search', 'tidak ada')
+  I.pressKeyDown('Enter')
+  I.see('Resto yang kamu cari tidak ada', 'h1')
+})

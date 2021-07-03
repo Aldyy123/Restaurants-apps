@@ -1,0 +1,37 @@
+@media screen and (max-width: 1220px) {
+  /* Jumbotron */
+  .landing .jumbotron h2 {
+    font-size: 30pt;
+  }
+  .title-center {
+    margin-top: 2rem;
+  }
+  /* Section Restoran */
+  section.restoran {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  
+  /* Detail */
+  #detail{
+    display: inline-block;
+    grid-template-columns: none!important;
+  }
+  #detail .detail-header > img{
+    width: 100%;
+  }
+  #detail .detail-deskripsi .title-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  #detail .list-reviews{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #detail .list-reviews .review{
+    width: 80%;
+  }
+  #detail .give-review .input-reviews{
+    width : 50%;
+  }
+}

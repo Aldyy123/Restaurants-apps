@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Suez+One&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+.loading{
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  z-index: 999999;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  align-items: center;
+}
+.skip{
+  text-decoration: none;
+  position: absolute;
+  top: -200px;
+  padding: 10px 15px;
+  background-color: #f7ea00;
+  color: #29bb89;
+}
+.skip:focus{
+  top: 0;
+}
+/* Header */
+header {
+  background-color: #0061a8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+header > a {
+  text-decoration: none;
+  display: block;
+  color: white;
+}
+header .brand img{
+  width: 50px;
+}
+header .mobilenav {
+  display: none;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  padding: 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  padding: 15px 10px;
+  color: white;
+}
+.search{
+  width: 50%;
+  margin: 0 auto;
+}
+.search #search{
+  height: 25px;
+  width: 70%;
+}
+/* Jumbotron */
+.landing .jumbotron {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.landing .jumbotron img{
+  width: 100%;
+  filter: grayscale(1);
+  height: auto;
+}
+.landing .jumbotron .text-landing{
+  position: absolute;
+  text-align: center;
+}
+.landing .jumbotron h2 {
+  color: #ff2222;
+  font-family: 'Kalam', cursive;
+  font-size: 40pt;
+}
+.landing .jumbotron h4{
+  color: #7868e6;
+  font-size: 20pt;
+}
+.title-center {
+  text-align: center;
+  font-family: 'Suez One', serif;
+  margin-top: 5rem;
+}
+/* Section Restoran */
+.link-resto{
+  text-decoration: none;
+}
+section.restoran {
+  display: grid;
+  row-gap: 10px;
+  column-gap: 10px;
+  padding: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+section.restoran .card .header-resto img {
+  width: 100%;
+}
+section.restoran .card {
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(to right top, #f48b29, #f5c0c0);
+}
+section.restoran .overlay {
+  position: absolute;
+  padding: 10px 15px;
+  background-color: #fb3640;
+  margin: 10px;
+  border-radius: 10px;
+  color: #edeef7;
+  z-index: 999;
+}
+section.restoran .card .body-resto {
+  padding: 10px;
+}
+section.restoran .card .body-resto h3,
+section.restoran .card .body-resto .text {
+  color: #fff;
+  padding: 5px;
+}
+section.restoran .card .body-resto h1 {
+  font-weight: bold;
+  color: black;
+  padding: 5px;
+}
+/* Detail */
+#detail{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#detail h3{
+  text-align: center;
+}
+#detail .menu{
+  padding: 30px 0;
+}
+#detail .menu .list-menu .makanan, #detail .menu .list-menu .minuman{
+  margin: 10px;
+}
+#detail .detail-deskripsi{
+  padding: 15px;
+}
+#detail .detail-deskripsi p:nth-child(2){
+  margin-top : 20px;
+}
+#detail .detail-header > img{
+  width: 100%;
+}
+#detail .menu .list-menu{
+  display: flex;
+  justify-content: space-around;
+}
+#detail .list-reviews .review{
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px auto;
+  padding: 15px;
+}
+#detail .give-review{
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+#detail .give-review .input-reviews{
+  width : 30%;
+  display: grid;
+  padding: 15px;
+  margin: 0 auto;
+}
+#detail .give-review .input-reviews #input-name, #detail .give-review .input-reviews #text-review,
+#detail .give-review .input-reviews #submit{
+  padding :15px;
+  margin: 3px;
+}
+#detail .reviews{
+  grid-column: 2;
+}
+#detail .list-reviews{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+#detail .reviews .list-reviews{
+  padding: 20px;
+  width: 70%;
+  margin: 0 auto;
+}
+#detail .reviews .list-reviews div{
+  padding: 5px;
+}
+#detail .reviews .list-reviews div > div{
+  display: flex;
+  justify-content: space-between;
+}
+#detail .reviews .list-reviews div > div > p {
+  font-weight: bold;
+}
+#detail .reviews .list-reviews div > p{
+  text-align: center;
+}
+#detail .list-reviews .review{
+  width: 90%;
+}
+#floating{
+  position: fixed;
+  /* background-color: #d1cee2; */
+  border: 1px solid #333;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px;
+  bottom: 70px;
+  right: 60px;
+}
+#floating img{
+  width: 30px!important;
+  padding: 5px;
+}
+/* Footer */
+footer{
+  background: #7868e6;
+  text-align: center;
+  height: 5vh;
+  align-items: center;
+  color: #edeef7;
+  display: flex;
+  justify-content:center;
+}
