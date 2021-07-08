@@ -28,11 +28,10 @@ class CachesHelper {
 
   static async _fetching (request) {
     const response = await fetch(request)
-    if (response || response === 200) {
-      await this._addCache(request)
+    if (!response || response !== 200) {
       return response
     }
-
+    await this._addCache(request)
     return response
   }
 

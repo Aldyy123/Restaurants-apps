@@ -10,7 +10,6 @@ class App {
   }
 
   async render () {
-    this.collapse()
     const url = UrlParser.urlCombiner()
     const route = Routes[url]
     this._content.innerHTML = await route.render()
@@ -19,8 +18,9 @@ class App {
 
   collapse () {
     this._burger.addEventListener('click', (e) => {
-      this._nav.classList.toggle('open')
+      e.preventDefault()
       e.stopPropagation()
+      this._nav.classList.toggle('open')
     })
     this._body.addEventListener('click', (e) => {
       this._nav.classList.remove('open')

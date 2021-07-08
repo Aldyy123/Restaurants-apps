@@ -7,8 +7,8 @@ const listResto = (restaurant) => `
                 <h4 class="overlay">${restaurant.city}</h4>
 <picture>
 <source media="(max-width: 600px)" srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
-<img 
-    src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
+<img class="lazyload"
+    data-src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
     alt="${restaurant.city}"></img>
 </picture>
               </div>
@@ -43,9 +43,10 @@ const detailTemplate = (restaurant) => {
   return `
   <div class="detail-header">
   <picture>
-  <source media="(max-width: 600px)" srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
-  <img 
-      src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
+  <source media="(max-width: 300px)" width="100%" srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
+  <source media="(max-width: 700px)" width="100%" srcset="${config.URL_IMAGE_MEDIUM + restaurant.pictureId}">
+  <img class="lazyload" width="100%"
+      data-src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
       alt="${restaurant.city}"></img>
   </picture>
   </div>

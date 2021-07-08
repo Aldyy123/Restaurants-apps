@@ -61,6 +61,7 @@ nav ul li a {
   margin: 0 auto;
 }
 .search #search{
+  padding: 8px;
   height: 25px;
   width: 70%;
 }

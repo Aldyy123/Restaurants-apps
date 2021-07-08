@@ -6,20 +6,10 @@ const notificationPermisions = async () => {
   }
 }
 
-const loadingPage = () => {
-  window.setTimeout(() => {
-    document.querySelector('.loading').style.visibility = 'visible'
-  }, 0)
-
-  window.setTimeout(() => {
-    document.querySelector('.loading').style.visibility = 'hidden'
-  }, 3500)
-}
-
 const registerSW = async () => {
   if ('serviceWorker' in navigator) {
-    // await runtime.register()
-    await navigator.serviceWorker.register('./sw.js')
+    await runtime.register()
+    // await navigator.serviceWorker.register('./sw.js')
     notificationPermisions()
   } else {
     console.log('gl support cuy')
@@ -27,4 +17,3 @@ const registerSW = async () => {
 }
 
 export default registerSW
-export { loadingPage }

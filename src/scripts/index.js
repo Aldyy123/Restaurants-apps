@@ -5,14 +5,13 @@ import '../styles/mobile.css'
 import '../public/images/logo.png'
 import '../public/spinner.gif'
 import App from './views/app'
-import registerSW, { loadingPage } from './main'
+import registerSW from './main'
 import 'lazysizes'
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
 
 const burger = document.querySelector('.mobilenav')
 const nav = document.querySelector('.drawer-nav')
 const body = document.querySelector('body')
-
 const mainContent = document.querySelector('#main')
 const app = new App(mainContent, body, burger, nav)
 
@@ -26,7 +25,7 @@ window.addEventListener('hashchange', () => {
 })
 
 window.addEventListener('load', async () => {
-  loadingPage()
-  app.render()
   registerSW()
+  app.render()
+  app.collapse()
 })

@@ -1,6 +1,7 @@
 import FavouriteBtn from '../src/scripts/utils/favorite-btn'
 import API from '../src/scripts/globals/api'
 import config from '../src/scripts/globals/Config'
+import favouriteDb from '../src/scripts/utils/FavoriteDB'
 
 describe('Favourite Button', () => {
   beforeEach(() => {
@@ -16,7 +17,7 @@ describe('Favourite Button', () => {
     floating.dispatchEvent(new Event('click'))
     const btn = new FavouriteBtn(floating, data)
     await btn.render()
-    expect(document.querySelector('[aria-label="like"]')).toBeTruthy()
+    expect(await favouriteDb.getResto(data.id)).not.toBeUndefined()
   })
   it('should unfavourite button into idb', async () => {
     const floating = document.querySelector('#floating')
@@ -27,7 +28,7 @@ describe('Favourite Button', () => {
     floating.dispatchEvent(new Event('click'))
     const btn = new FavouriteBtn(floating, data)
     await btn.render()
-    expect(document.querySelector('[aria-label="liked"]')).toBeTruthy()
+    expect(await favouriteDb.getResto(data.id)).toBeUndefined()
   })
 })
 

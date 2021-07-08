@@ -4,12 +4,12 @@ const { assets } = global.serviceWorkerOption
 
 self.addEventListener('install', async (e) => {
   console.log('installing service worker')
-  e.waitUntil(await CachesHelper.installing([...assets, '/']))
+  e.waitUntil(CachesHelper.installing([...assets, '/']))
 })
 
 self.addEventListener('activate', async (e) => {
   console.log('Activate')
-  e.waitUntil(await CachesHelper.deleteOldCache())
+  e.waitUntil(CachesHelper.deleteOldCache())
 })
 
 self.addEventListener('fetch', async (e) => {
