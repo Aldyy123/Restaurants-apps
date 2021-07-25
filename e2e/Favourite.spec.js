@@ -16,6 +16,9 @@ Scenario('Add Into Favourite and delete from Favourite', ({ I }) => {
   I.click(locate('#favorite .link-resto').first())
   I.seeElement('#floating #liked')
   I.click('#liked')
+  I.amOnPage('/#/favorite')
+  I.dontSeeElement('#favorite .link-resto')
+  I.see('', '#favorite')
 })
 
 Scenario('Adding Review', ({ I }) => {

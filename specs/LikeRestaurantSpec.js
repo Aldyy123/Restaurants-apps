@@ -5,30 +5,48 @@ import favouriteDb from '../src/scripts/utils/FavoriteDB'
 
 describe('Favourite Button', () => {
   beforeEach(() => {
-    document.body.innerHTML = ` <button  id="floating">
-     </button>`
+    document.body.innerHTML = `<div id="detail">
+    </div>`
   })
-  it('should favourite button into idb', async () => {
-    const floating = document.querySelector('#floating')
+  it('should show the like button', async () => {
+    const detail = document.querySelector('#detail')
     const data = {
       id: 'w9pga3s2tubkfw1e867',
       name: 'mbuh',
     }
-    floating.dispatchEvent(new Event('click'))
-    const btn = new FavouriteBtn(floating, data)
+    const btn = new FavouriteBtn(detail, data)
     await btn.render()
-    expect(await favouriteDb.getResto(data.id)).not.toBeUndefined()
-  })
-  it('should unfavourite button into idb', async () => {
     const floating = document.querySelector('#floating')
+    await btn.checkingButton(floating)
+    // console.log(document.querySelector('#like'))
+    expect(document.querySelector('#like')).toBeDefined()
+  })
+  it('should be able to like the Restaurant', async () => {
+    const detail = document.querySelector('#detail')
     const data = {
-      id: 'w9pga3s2tubkfw1e867',
-      name: 'mbuh',
+      id: 1
     }
-    floating.dispatchEvent(new Event('click'))
-    const btn = new FavouriteBtn(floating, data)
+    const btn = new FavouriteBtn(detail, data)
     await btn.render()
-    expect(await favouriteDb.getResto(data.id)).toBeUndefined()
+    const floating = document.querySelector('#floating')
+    floating.dispatchEvent(new Event('click'))
+    await btn.insertDataClick(floating)
+    const resto = await favouriteDb.getResto(1)
+    expect(resto).toEqual({ id: 1 })
+    favouriteDb.deleteFavorite(1)
+  })
+  it('should be able to remove liked Restaurant', async () => {
+    const detail = document.querySelector('#detail')
+    const data = {
+      id: 1
+    }
+    const btn = new FavouriteBtn(detail, data)
+    await btn.render()
+    const floating = document.querySelector('#floating')
+    floating.dispatchEvent(new Event('click'))
+    await btn.insertDataClick(floating)
+    const allResto = await favouriteDb.getAll()
+    expect(allResto).toEqual([])
   })
 })
 

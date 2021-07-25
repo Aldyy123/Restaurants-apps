@@ -9,14 +9,34 @@ class FavoriteButton {
   }
 
   async render () {
+    this._element.innerHTML += '<button id="floating"></button>'
+    return document.querySelector('#floating')
+  }
+
+  async checkingButton (floating) {
     if (await this._isExisting(this._restaurant.id)) {
-      await this._deleteResto(this._restaurant)
-      this._element.innerHTML = like
-      return this._showNotifications('Di hapus dari database', this._restaurant)
+      floating.innerHTML += liked
+    } else {
+      floating.innerHTML += like
     }
-    this._element.innerHTML = liked
-    await this._putResto(this._restaurant)
-    return this._showNotifications('Di Tambahkan ke database', this._restaurant)
+  }
+
+  buttonClick (floating) {
+    floating.addEventListener('click', async () => {
+      await this.insertDataClick(floating)
+    })
+  }
+
+  async insertDataClick (floating) {
+    if (await this._isExisting(this._restaurant.id)) {
+      floating.innerHTML = like
+      await this._showNotifications('Di hapus dari database', this._restaurant)
+      return this._deleteResto(this._restaurant)
+    } else {
+      floating.innerHTML = liked
+      await this._putResto(this._restaurant)
+      return this._showNotifications('Di Tambahkan ke database', this._restaurant)
+    }
   }
 
   async _isExisting (id) {
@@ -36,7 +56,7 @@ class FavoriteButton {
       const notification = await navigator.serviceWorker.ready
       return notification.showNotification(restaurant.name, {
         body: title,
-        image: config.URL_IMAGE + restaurant.pictureId
+        image: config.URL_IMAGE_MEDIUM + restaurant.pictureId
       })
     }
   }

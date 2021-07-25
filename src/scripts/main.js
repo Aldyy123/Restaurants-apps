@@ -8,6 +8,7 @@ const notificationPermisions = async () => {
 
 const registerSW = async () => {
   if ('serviceWorker' in navigator) {
+    // Runtime Di jalankan untuk development
     await runtime.register()
     // await navigator.serviceWorker.register('./sw.js')
     notificationPermisions()

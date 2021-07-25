@@ -6,7 +6,7 @@ const listResto = (restaurant) => `
               <div class="header-resto">
                 <h4 class="overlay">${restaurant.city}</h4>
 <picture>
-<source media="(max-width: 600px)" srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
+<source media="(max-width: 600px)" data-srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
 <img class="lazyload"
     data-src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
     alt="${restaurant.city}"></img>
@@ -43,8 +43,8 @@ const detailTemplate = (restaurant) => {
   return `
   <div class="detail-header">
   <picture>
-  <source media="(max-width: 300px)" width="100%" srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
-  <source media="(max-width: 700px)" width="100%" srcset="${config.URL_IMAGE_MEDIUM + restaurant.pictureId}">
+  <source media="(max-width: 300px)" width="100%" data-srcset="${config.URL_IMAGE_SMALL + restaurant.pictureId}">
+  <source media="(max-width: 700px)" width="100%" data-srcset="${config.URL_IMAGE_MEDIUM + restaurant.pictureId}">
   <img class="lazyload" width="100%"
       data-src="${config.URL_IMAGE_LARGE + restaurant.pictureId}" 
       alt="${restaurant.city}"></img>
@@ -109,10 +109,10 @@ const listReviews = (review) => {
 }
 
 const like = `
-<img aria-label="like" id="like" src="images/favourite.svg"/>`
+<img aria-label="like" class="lazyload" id="like" data-src="images/favourite.svg"/>`
 
 const liked = `
-<img aria-label="liked" id="liked" src="images/star.svg"/>`
+<img aria-label="liked" class="lazyload" id="liked" data-src="images/star.svg"/>`
 
 const detailsPart = (datas, selector, template) => {
   datas.forEach((data) => {

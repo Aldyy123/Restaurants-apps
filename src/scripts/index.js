@@ -16,9 +16,9 @@ const mainContent = document.querySelector('#main')
 const app = new App(mainContent, body, burger, nav)
 
 import('lodash.filter')
-.then((module) => module.default)
-.then(app)
-.catch((err) => alert(err))
+  .then((module) => module.default)
+  .then(app)
+  .catch((err) => alert(err))
 
 window.addEventListener('hashchange', () => {
   app.render()

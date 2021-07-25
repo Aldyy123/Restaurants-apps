@@ -5,8 +5,7 @@ import {
   detailTemplate,
   listReviews,
   listMenu,
-  detailsPart,
-  like, liked
+  detailsPart
 } from '../template/template-resto'
 import FavoriteBtn from '../../utils/favorite-btn'
 
@@ -14,8 +13,6 @@ const detail = {
   async render () {
     return `
         <div id="detail">
-        <button id="floating"></button>
-           
         </div>
         `
   },
@@ -47,16 +44,11 @@ const detail = {
       console.log(addReview.customerReviews)
       detailsPart(addReview.customerReviews, '.list-reviews', listReviews)
     })
+    const favoriteBtn = new FavoriteBtn(detailPage, results.restaurant)
+    await favoriteBtn.render()
     const floating = document.querySelector('#floating')
-    const favoriteBtn = new FavoriteBtn(floating, results.restaurant)
-    if (await favoriteBtn._isExisting(id)) {
-      floating.innerHTML += liked
-    } else {
-      floating.innerHTML += like
-    }
-    floating.addEventListener('click', () => {
-      favoriteBtn.render()
-    })
+    favoriteBtn.checkingButton(floating)
+    favoriteBtn.buttonClick(floating)
   }
 }
 
