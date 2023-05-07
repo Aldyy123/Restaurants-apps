@@ -52,8 +52,10 @@ class FavoriteButton {
   }
 
   async _showNotifications (title, restaurant) {
+    console.log('Notification log')
     if (Notification.permission === 'granted') {
       const notification = await navigator.serviceWorker.ready
+      console.log('React native handle has been added')
       if (window.ReactNativeWebView) {
         // send data object to React Native (only string)
         window.ReactNativeWebView.postMessage(JSON.stringify({
