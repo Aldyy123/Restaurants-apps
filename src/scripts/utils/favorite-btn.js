@@ -54,6 +54,14 @@ class FavoriteButton {
   async _showNotifications (title, restaurant) {
     if (Notification.permission === 'granted') {
       const notification = await navigator.serviceWorker.ready
+      if (window.ReactNativeWebView) {
+        // send data object to React Native (only string)
+        window.ReactNativeWebView.postMessage(JSON.stringify({
+          title,
+          name: restaurant.name,
+          image: config.URL_IMAGE_MEDIUM + restaurant.pictureId
+        }))
+      }
       return notification.showNotification(restaurant.name, {
         body: title,
         image: config.URL_IMAGE_MEDIUM + restaurant.pictureId
