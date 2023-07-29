@@ -4,7 +4,7 @@ const path = require('path')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),

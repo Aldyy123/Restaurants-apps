@@ -109,10 +109,10 @@ const listReviews = (review) => {
 }
 
 const like = `
-<img aria-label="like" class="lazyload" id="like" data-src="images/favourite.svg"/>`
+<img aria-label="like" class="lazyload" id="like" alt="like" data-src="images/favourite.svg"/>`
 
 const liked = `
-<img aria-label="liked" class="lazyload" id="liked" data-src="images/star.svg"/>`
+<img aria-label="liked" class="lazyload" id="liked" alt="liked" data-src="images/star.svg"/>`
 
 const detailsPart = (datas, selector, template) => {
   datas.forEach((data) => {
