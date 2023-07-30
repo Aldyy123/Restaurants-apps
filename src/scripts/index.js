@@ -25,7 +25,7 @@ window.addEventListener('hashchange', () => {
 })
 
 window.addEventListener('load', async () => {
-  registerSW()
+  // registerSW()
   app.render()
   app.collapse()
 })

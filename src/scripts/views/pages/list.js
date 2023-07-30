@@ -11,7 +11,8 @@ const List = {
         <source media="(max-width: 600px)" srcset="images/heros/hero-image_2-small.jpg">
         <img 
         src="images/heros/hero-image_2-large.jpg" 
-        alt="Image"></img>
+        width="100%"
+        alt="Image"/>
       </picture>
         <div class="text-landing">
           <h2>Nyari Tempat nongkrong??</h2>

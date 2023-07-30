@@ -3,6 +3,10 @@
   .landing .jumbotron h2 {
     font-size: 30pt;
   }
+  .landing .jumbotron img{
+    width: 100vw;
+    height: auto;
+  }
   .title-center {
     margin-top: 2rem;
   }

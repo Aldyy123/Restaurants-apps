@@ -73,7 +73,7 @@ nav ul li a {
   align-items: center;
 }
 .landing .jumbotron img{
-  width: 100%;
+  width: 99.2vw;
   filter: grayscale(1);
   height: auto;
 }
